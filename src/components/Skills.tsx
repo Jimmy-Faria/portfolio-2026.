@@ -1,49 +1,78 @@
 "use client"
-import { motion } from "framer-motion"
-import { Box, Braces, Database, FileCode2, Palette, Server } from "lucide-react"
 
-const skills = [
-  { name: "Node.js", detail: "APIs and logic", icon: Server },
-  { name: "PHP", detail: "Backend foundations", icon: Braces },
-  { name: "MySQL", detail: "Data and queries", icon: Database },
-  { name: "Docker", detail: "Consistent environments", icon: Box },
-  { name: "Tailwind CSS", detail: "Fast, clean UI", icon: Palette },
-  { name: "TypeScript", detail: "Safer code", icon: FileCode2 },
+import { Reveal } from "./Reveal"
+
+const SKILLS_DATA = [
+  {
+    category: "Desenvolvimento Web",
+    items: [
+      { name: "HTML5 + CSS3 + JAVASCRIPT + REACT", percentage: 95 },
+      { name: "NEXT.JS + TYPESCRIPT + TAILWIND", percentage: 90 },
+    ],
+  },
+  {
+    category: "Software Web",
+    items: [
+      { name: "PHP + MYSQL", percentage: 85 },
+      { name: "NODE.JS + POSTGRESQL", percentage: 80 },
+    ],
+  },
+  {
+    category: "Design Gráfico",
+    items: [
+      { name: "PHOTOSHOP + ILLUSTRATOR", percentage: 90 },
+    ],
+  },
+  {
+    category: "Comunicação",
+    items: [
+      { name: "GESTÃO DE REDES SOCIAIS", percentage: 85 },
+      { name: "CAMPANHAS DE MARKETING DIGITAL", percentage: 80 },
+    ],
+  },
 ]
 
 export default function Skills() {
   return (
-    <section className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20">
-      <div className="mb-8 flex flex-col gap-4 sm:mb-12">
-        <h2 className="text-xs uppercase tracking-[0.2em] text-zinc-500 sm:text-sm">
-          02. Technical Stack
-        </h2>
-        <div className="h-px w-24 bg-gradient-to-r from-violet-500/70 to-transparent" />
-      </div>
-
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {skills.map((skill, index) => (
-          <motion.div
-            key={skill.name}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1 }}
-            whileHover={{ y: -4 }}
-            className="surface-card group relative min-h-[120px] overflow-hidden rounded-[28px] p-6"
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] via-transparent to-sky-400/[0.05] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-            <div className="relative flex items-start gap-4">
-              <div className="rounded-2xl border border-white/8 bg-white/[0.04] p-3 text-zinc-100 transition-colors group-hover:border-white/14 group-hover:text-white">
-                <skill.icon size={20} />
+    <section id="skills" className="section-container border-y border-black/5 bg-[#fcfcfc]">
+      <Reveal>
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <h2 className="label-caps">02. Competencias</h2>
+            <p className="mt-8 max-w-xs text-base leading-relaxed text-black/60">
+              Durante o meu estagio na Signed, reforcei bases em desenvolvimento web, design digital e entrega de trabalho funcional.
+            </p>
+          </div>
+          <div className="lg:col-span-8 space-y-12">
+            {SKILLS_DATA.map((group) => (
+              <div key={group.category} className="space-y-8">
+                <h3 className="label-caps border-b border-black/5 pb-2">
+                  {group.category}
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+                  {group.items.map((skill) => (
+                    <div key={skill.name} className="space-y-3">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[0.78rem] tracking-[0.12em] text-black/80">{skill.name}</span>
+                        <span className="rounded-full bg-black/5 px-2 py-0.5 text-[0.68rem] text-black/50">
+                          {skill.percentage}%
+                        </span>
+                      </div>
+                      <div className="h-[3px] w-full bg-black/5 rounded-full overflow-hidden">
+                        <div 
+                          className="h-full bg-gradient-to-r from-slate-700 to-slate-900 transition-all duration-1000 ease-out"
+                          style={{ width: `${skill.percentage}%` }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <div>
-                <p className="text-base font-semibold tracking-tight text-white">{skill.name}</p>
-                <p className="mt-1 text-sm leading-relaxed text-zinc-400">{skill.detail}</p>
-              </div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
+            ))}
+          </div>
+        </div>
+      </Reveal>
     </section>
   )
 }
+

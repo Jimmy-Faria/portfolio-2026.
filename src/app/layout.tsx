@@ -1,21 +1,16 @@
 import type { Metadata } from "next"
-import { Geist_Mono, Inter } from "next/font/google"
+import { Playfair_Display } from "next/font/google"
 import "./globals.css"
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-})
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const playfairDisplay = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
 })
 
 export const metadata: Metadata = {
-  title: "Jimmy Goncalves | Web Developer",
+  title: "Jimmy Gonçalves | Web Developer",
   description:
-    "Personal portfolio focused on modern frontend work, growing full-stack skills, and polished web development projects.",
+    "Personal portfolio focused on modern web development and clean design.",
 }
 
 export default function RootLayout({
@@ -24,9 +19,9 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt">
       <body
-        className={`${inter.variable} ${geistMono.variable} bg-black antialiased`}
+        className={`${playfairDisplay.variable} bg-[#fcfcfc] text-[#1a1a1a] antialiased`}
       >
         {children}
       </body>

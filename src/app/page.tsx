@@ -1,63 +1,34 @@
-import BackgroundCircles from "@/components/BackgroundCircles"
-import Hero from "@/components/Hero"
-import Navbar from "@/components/Navbar"
-import Skills from "@/components/Skills"
-import ProjectGrid from "@/components/ProjectGrid"
-import Footer from "@/components/Footer"
 import { Reveal } from "@/components/Reveal"
+import Navbar from "@/components/Navbar"
+import Hero from "@/components/Hero"
+import Skills from "@/components/Skills"
+import Footer from "@/components/Footer"
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen overflow-x-hidden bg-zinc-950 text-white mesh-bg">
-      <BackgroundCircles />
+    <main className="min-h-screen bg-[#fcfcfc]">
+      <Navbar />
+      
+      <Hero />
 
-      <div className="relative z-10">
-        <Navbar />
-
-        <div className="pt-[4.5rem] sm:pt-20">
-          <Hero />
-
-          <section id="about" className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-24">
-            <Reveal>
-              <div className="mb-8 flex flex-col gap-4 sm:mb-10">
-                <h2 className="text-xl font-bold uppercase tracking-widest text-zinc-500 sm:text-2xl">
-                  01. About My Work
-                </h2>
-                <div className="h-px w-24 bg-gradient-to-r from-blue-500/70 to-transparent" />
-              </div>
-            </Reveal>
-
-            <Reveal>
-              <div className="surface-card rounded-[28px] p-6 sm:p-8">
-                <p className="max-w-3xl text-base leading-relaxed text-zinc-300 sm:text-lg">
-                  Currently building my path in web development. A{" "}
-                  <span className="font-mono italic text-blue-400">&apos;work in progress&apos;</span> focused on
-                  turning technical concepts into clean interfaces and functional code.
-                </p>
-
-                <div className="mt-6 flex flex-wrap gap-3">
-                  {["Clean UI", "Structure", "Data", "DX"].map((item) => (
-                    <span
-                      key={item}
-                      className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[11px] font-mono uppercase tracking-[0.2em] text-zinc-300"
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </Reveal>
-          </section>
-
-          <Skills />
-
-          <div id="projects">
-            <ProjectGrid />
+      <section id="about" className="section-container">
+        <Reveal>
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
+            <div className="lg:col-span-4">
+              <h2 className="label-caps">01. Perspetiva</h2>
+            </div>
+            <div className="lg:col-span-8">
+              <p className="text-xl md:text-2xl leading-snug text-black/82 sm:text-[2rem]">
+                Estou a construir o meu caminho no desenvolvimento web, com foco em interfaces limpas e codigo funcional.
+              </p>
+            </div>
           </div>
+        </Reveal>
+      </section>
 
-          <Footer />
-        </div>
-      </div>
+      <Skills />
+
+      <Footer />
     </main>
   )
 }

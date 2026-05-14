@@ -1,30 +1,49 @@
 "use client"
 
-import { scrollToContactAndHighlight } from "@/lib/contact"
+import { motion } from "framer-motion"
 
 export default function Navbar() {
   return (
-    <nav className="fixed top-0 z-50 w-full">
-      <div className="mx-auto max-w-5xl px-3 pt-3 sm:px-6">
-        <div className="surface-card flex min-h-14 items-center justify-between gap-2 rounded-[24px] px-3 py-2 sm:rounded-full sm:px-6">
-          <span className="shrink-0 text-sm font-bold tracking-tighter text-white sm:text-xl">Jimmy</span>
-          <div className="nav-links flex min-w-0 items-center justify-end gap-2 overflow-x-auto whitespace-nowrap text-[10px] text-zinc-400 sm:gap-8 sm:text-sm">
-            <a href="#about" className="cursor-pointer transition-colors hover:text-white">
-              About
+    <motion.nav 
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
+      className="fixed top-0 z-50 w-full bg-[#fcfcfc]/80 backdrop-blur-md"
+    >
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+        <a href="/" className="group flex items-center gap-4">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-black text-[11px] font-bold text-white shadow-[0_12px_24px_rgba(0,0,0,0.08)]">
+            &lt;/&gt;
+          </div>
+          <div className="flex items-baseline gap-2 text-[#1a1a1a]">
+            <span className="text-[1.8rem] leading-none tracking-tight">Jimmy</span>
+            <span className="text-[1.8rem] leading-none tracking-tight">Goncalves</span>
+          </div>
+        </a>
+        
+        <div className="flex items-center gap-8">
+          <div className="hidden items-center gap-8 sm:flex">
+            <a href="#" className="label-caps transition-colors hover:text-black">
+              Início
             </a>
-            <a href="#projects" className="cursor-pointer transition-colors hover:text-white">
-              Projects
+            <a href="#about" className="label-caps transition-colors hover:text-black">
+              Sobre
             </a>
-            <a
-              href="#contact"
-              onClick={scrollToContactAndHighlight}
-              className="rounded-full border border-blue-500/30 bg-blue-500/10 px-2.5 py-1.5 font-medium text-blue-400 transition-colors hover:border-blue-400/50 hover:text-blue-300 sm:px-3"
-            >
-              Contact
+            <a href="#contact" className="label-caps transition-colors hover:text-black">
+              Contacto
             </a>
+          </div>
+
+          <div className="flex items-center gap-3 border-l border-black/10 pl-8">
+            <button className="text-lg grayscale transition-all hover:grayscale-0" title="Português">
+              🇵🇹
+            </button>
+            <button className="text-lg grayscale transition-all hover:grayscale-0" title="English">
+              🇬🇧
+            </button>
           </div>
         </div>
       </div>
-    </nav>
+    </motion.nav>
   )
 }
