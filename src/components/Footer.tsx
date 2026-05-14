@@ -36,148 +36,90 @@ export default function Footer() {
   }
 
   return (
-    <footer id="contact" className="bg-[#fcfcfc] py-24 border-t border-zinc-100 overflow-hidden">
+    <footer id="contact" className="bg-[#0a0a0a] py-12 md:py-16 border-t border-white/5 overflow-hidden">
       <div className="container-custom">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+          <div className="flex flex-col md:flex-row justify-between items-start gap-10">
             
-            {/* Left: Info */}
-            <div className="space-y-12">
+            {/* Left: Branding & Message */}
+            <div className="space-y-6 max-w-sm">
               <Reveal>
-                <div className="space-y-4">
-                  <h2 className="text-4xl md:text-5xl font-serif italic text-zinc-900 leading-tight">
-                    {language === 'pt' ? 'Vamos criar algo ' : 'Let\'s create something '}
-                    <span className="text-zinc-400 not-italic">{language === 'pt' ? 'memorável.' : 'memorable.'}</span>
-                  </h2>
-                  <p className="text-zinc-500 text-lg max-w-md leading-relaxed">
-                    {language === 'pt' 
-                      ? 'Tens uma ideia ou um projeto em mente? Estou sempre disponível para novos desafios e colaborações.' 
-                      : 'Have an idea or a project in mind? I\'m always open to new challenges and collaborations.'}
-                  </p>
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
+                    <span className="text-black font-bold text-xs font-mono">&lt;/&gt;</span>
+                  </div>
+                  <span className="text-white text-lg font-serif italic tracking-tight">Jimmy Faria.</span>
                 </div>
               </Reveal>
 
-              <div className="space-y-6">
-                <Reveal delay={0.1}>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                    <a href="mailto:jimmyfariawd@hotmail.com" className="group">
-                      <p className="text-zinc-400 text-xs font-mono uppercase tracking-widest mb-2">Email</p>
-                      <p className="text-zinc-900 group-hover:text-zinc-500 transition-colors">jimmyfariawd@hotmail.com</p>
-                    </a>
-                    <a href="tel:+351935773394" className="group">
-                      <p className="text-zinc-400 text-xs font-mono uppercase tracking-widest mb-2">
-                        {language === 'pt' ? 'Telemóvel' : 'Phone'}
-                      </p>
-                      <p className="text-zinc-900 group-hover:text-zinc-500 transition-colors">+351 935 773 394</p>
-                    </a>
-                  </div>
-                </Reveal>
+              <Reveal delay={0.1}>
+                <p className="text-white/40 text-base leading-relaxed">
+                  {language === 'pt' 
+                    ? 'Focado em construir cenas para a web que funcionam bem e têm um aspeto limpo.' 
+                    : 'Focused on building web experiences that work well and look clean.'}
+                </p>
+              </Reveal>
 
-                <Reveal delay={0.2}>
-                  <div className="flex gap-6 pt-4">
-                    <a
-                      href="https://www.linkedin.com/in/jimmy-faria-a0492b3b7/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-zinc-400 hover:text-zinc-900 transition-colors"
-                    >
-                      <Linkedin size={20} />
-                    </a>
-                    <a
-                      href="https://github.com/Jimmy-Faria"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-zinc-400 hover:text-zinc-900 transition-colors"
-                    >
-                      <Github size={20} />
-                    </a>
-                  </div>
-                </Reveal>
-              </div>
+              <Reveal delay={0.2}>
+                <div className="flex gap-3">
+                  <a
+                    href="https://www.linkedin.com/in/jimmy-faria-a0492b3b7/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-9 h-9 border border-white/10 rounded-full flex items-center justify-center text-white/40 hover:text-white hover:border-white/30 transition-all"
+                  >
+                    <Linkedin size={16} />
+                  </a>
+                  <a
+                    href="https://github.com/Jimmy-Faria"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-9 h-9 border border-white/10 rounded-full flex items-center justify-center text-white/40 hover:text-white hover:border-white/30 transition-all"
+                  >
+                    <Github size={16} />
+                  </a>
+                </div>
+              </Reveal>
             </div>
 
-            {/* Right: Form */}
-            <Reveal delay={0.3}>
-              <form onSubmit={handleSubmit} className="bg-white p-8 md:p-10 rounded-2xl border border-zinc-100 shadow-sm space-y-6">
-                <div className="space-y-4">
-                  <div className="space-y-2">
-                    <label className="text-xs font-mono uppercase tracking-widest text-zinc-400 ml-1">
-                      {language === 'pt' ? 'Nome' : 'Name'}
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder={language === 'pt' ? 'Como te chamas?' : 'Your name?'}
-                      className="w-full bg-zinc-50 border border-transparent focus:border-zinc-200 focus:bg-white px-5 py-4 rounded-xl outline-none transition-all text-zinc-900 placeholder:text-zinc-300"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <label className="text-xs font-mono uppercase tracking-widest text-zinc-400 ml-1">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder={language === 'pt' ? 'O teu  email' : 'Your  email'}
-                      className="w-full bg-zinc-50 border border-transparent focus:border-zinc-200 focus:bg-white px-5 py-4 rounded-xl outline-none transition-all text-zinc-900 placeholder:text-zinc-300"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <label className="text-xs font-mono uppercase tracking-widest text-zinc-400 ml-1">
-                      {language === 'pt' ? 'Mensagem' : 'Message'}
-                    </label>
-                    <textarea
-                      required
-                      rows={4}
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder={language === 'pt' ? 'Em que posso ajudar?' : 'How can I help you?'}
-                      className="w-full bg-zinc-50 border border-transparent focus:border-zinc-200 focus:bg-white px-5 py-4 rounded-xl outline-none transition-all text-zinc-900 placeholder:text-zinc-300 resize-none"
-                    />
-                  </div>
+            {/* Right: Direct Contacts */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-8">
+              <Reveal delay={0.3}>
+                <div className="space-y-2">
+                  <p className="text-white/30 text-[10px] font-mono uppercase tracking-[0.25em]">Email</p>
+                  <a href="mailto:jimmyfariawd@hotmail.com" className="text-white/80 hover:text-white transition-colors block text-base font-serif italic">
+                    jimmyfariawd@hotmail.com
+                  </a>
                 </div>
+              </Reveal>
 
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full bg-zinc-900 text-white py-4 rounded-xl font-medium hover:bg-zinc-800 transition-all flex items-center justify-center gap-2 group disabled:opacity-70"
-                >
-                  {loading ? (
-                    <Loader2 size={18} className="animate-spin" />
-                  ) : (
-                    <>
-                      <span>{language === 'pt' ? 'Enviar mensagem' : 'Send message'}</span>
-                      <Send size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                    </>
-                  )}
-                </button>
-
-                {status === "success" && (
-                  <p className="text-center text-sm text-green-600 font-medium animate-in fade-in slide-in-from-bottom-2">
-                    {language === 'pt' ? 'Abrindo cliente de email...' : 'Opening email client...'}
+              <Reveal delay={0.4}>
+                <div className="space-y-2">
+                  <p className="text-white/30 text-[10px] font-mono uppercase tracking-[0.25em]">
+                    {language === 'pt' ? 'Telemóvel' : 'Phone'}
                   </p>
-                )}
-              </form>
-            </Reveal>
+                  <a href="tel:+351935773394" className="text-white/80 hover:text-white transition-colors block text-base font-serif italic">
+                    +351 935 773 394
+                  </a>
+                </div>
+              </Reveal>
+
+              <Reveal delay={0.5}>
+                <div className="space-y-2">
+                  <p className="text-white/30 text-[10px] font-mono uppercase tracking-[0.25em]">{language === 'pt' ? 'Localização' : 'Location'}</p>
+                  <p className="text-white/60 text-base font-serif italic">Porto, Portugal</p>
+                </div>
+              </Reveal>
+            </div>
 
           </div>
 
-          <div className="mt-24 pt-8 border-t border-zinc-100 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-zinc-900 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xs font-mono">&lt;/&gt;</span>
-              </div>
-              <span className="text-zinc-900 font-bold tracking-tight uppercase">Jimmy Faria.</span>
-            </div>
-            
-            <p className="text-zinc-400 text-sm">
-              &copy; {new Date().getFullYear()} — Built with Next.js & Tailwind
+          <div className="mt-16 pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p className="text-white/40 text-[11px] font-mono tracking-widest uppercase">
+              &copy; {new Date().getFullYear()} — JIMMY FARIA.
+            </p>
+            <p className="text-white/40 text-[11px] font-mono tracking-widest uppercase">
+              {language === 'pt' ? 'Todos os direitos reservados' : 'All rights reserved'}
             </p>
           </div>
         </div>
