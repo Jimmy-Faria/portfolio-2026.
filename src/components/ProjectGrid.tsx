@@ -57,7 +57,7 @@ export default function ProjectGrid() {
                 A collection of experiments and contributions exploring clean code patterns and modern API integrations.
               </p>
               <a 
-                href="https://github.com/hyngux" 
+                href="https://github.com/Jimmy-Faria" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm font-medium border-b border-black/10 pb-1 transition-colors hover:border-black"
