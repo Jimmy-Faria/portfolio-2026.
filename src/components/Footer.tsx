@@ -106,7 +106,6 @@ export default function Footer() {
 
               <Reveal delay={0.5}>
                 <div className="space-y-2">
-                  <p className="text-white/30 text-[10px] font-mono uppercase tracking-[0.25em]">{language === 'pt' ? 'Localização' : 'Location'}</p>
                 </div>
               </Reveal>
             </div>
