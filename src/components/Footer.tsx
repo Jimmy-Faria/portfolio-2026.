@@ -36,13 +36,13 @@ export default function Footer() {
   }
 
   return (
-    <footer id="contact" className="bg-[#0a0a0a] py-12 md:py-16 border-t border-white/5 overflow-hidden">
+    <footer id="contact" className="bg-[#0a0a0a] py-8 md:py-10 border-t border-white/5 overflow-hidden">
       <div className="container-custom">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-start gap-10">
             
             {/* Left: Branding & Message */}
-            <div className="space-y-6 max-w-sm">
+            <div className="space-y-4 max-w-sm">
               <Reveal>
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
@@ -50,14 +50,6 @@ export default function Footer() {
                   </div>
                   <span className="text-white text-lg font-serif italic tracking-tight">Jimmy Faria.</span>
                 </div>
-              </Reveal>
-
-              <Reveal delay={0.1}>
-                <p className="text-white/40 text-base leading-relaxed">
-                  {language === 'pt' 
-                    ? 'Focado em construir cenas para a web que funcionam bem e têm um aspeto limpo.' 
-                    : 'Focused on building web experiences that work well and look clean.'}
-                </p>
               </Reveal>
 
               <Reveal delay={0.2}>

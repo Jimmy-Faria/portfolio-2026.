@@ -87,14 +87,12 @@ export default function Hero() {
           {/* Right: Text Content */}
           <motion.div variants={itemVariants} className="text-center md:text-left space-y-6">
             <h1 className="text-[1.9rem] sm:text-[2.3rem] md:text-[2.6rem] lg:text-[3.1rem] font-medium leading-[1.05] tracking-tight text-[#1a1a1a]">
-              {language === 'pt' ? 'Ola, eu sou o ' : 'Hi, I am '}<br />
+              {language === 'pt' ? 'Olá, eu sou o ' : 'Hi, I am '}<br />
               <span className="font-semibold italic font-serif">Jimmy Goncalves</span>
             </h1>
             <div className="max-w-3xl space-y-4 md:space-y-6 text-base md:text-lg leading-relaxed text-black/62">
-              <p className="max-w-md mx-auto md:mx-0 text-sm md:text-base">
-                {language === 'pt' 
-                  ? 'Ainda estou no inicio, mas gosto de criar interfaces limpas e soluções simples que funcionam bem.'
-                  : 'I am just getting started, but I love building clean interfaces and simple solutions that work well.'}
+              <p className="max-w-md mx-auto md:mx-0 text-sm md:text-base font-serif italic text-black/50">
+                Crafting clean interfaces with modern code.
               </p>
               <p className="text-black/84 text-[1.1rem] md:text-[1.35rem] lg:text-[1.5rem] leading-[1.25]">
                 {language === 'pt' ? 'Trabalho principalmente com ' : 'I mainly work with '}

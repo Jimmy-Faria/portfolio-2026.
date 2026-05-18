@@ -9,16 +9,16 @@ const SKILLS_DATA = [
   {
     category: "Web Development Core",
     items: [
-      { name: "Next.js", percentage: 95 },
-      { name: "Node.js", percentage: 90 },
-      { name: "TypeScript", percentage: 92 },
+      { name: "Next.js", percentage: 88 },
+      { name: "Node.js", percentage: 82 },
+      { name: "TypeScript", percentage: 85 },
     ],
   },
   {
     category: "Backend & Systems",
     items: [
-      { name: "PHP", percentage: 85 },
-      { name: "MySQL", percentage: 88 },
+      { name: "PHP", percentage: 75 },
+      { name: "MySQL", percentage: 80 },
     ],
   },
 ]
@@ -48,8 +48,14 @@ export default function Skills() {
             </div>
 
             {/* Caption */}
-            <div className="mt-8 space-y-4">
-              <h2 className="label-caps !text-black/80 !text-[0.8rem]">02. Core Tech</h2>
+            <div className="mt-8 space-y-4 lg:hidden">
+              <p className="text-base leading-relaxed text-black/50 font-light max-w-sm">
+                {language === 'pt' 
+                  ? 'É aqui que passo a maior parte do tempo. Gosto de usar tecnologia moderna para fazer os meus projetos acontecerem.'
+                  : 'Where I spend most of my time. I like using modern tech to make my projects happen.'}
+              </p>
+            </div>
+            <div className="mt-8 space-y-4 hidden lg:block">
               <p className="text-base leading-relaxed text-black/50 font-light max-w-sm">
                 {language === 'pt' 
                   ? 'É aqui que passo a maior parte do tempo. Gosto de usar tecnologia moderna para fazer os meus projetos acontecerem.'
@@ -60,6 +66,16 @@ export default function Skills() {
 
           {/* Right Side: Skill Bars */}
           <div className="space-y-16 py-8">
+            <div className="hidden lg:block space-y-4 mb-12">
+              <h2 className="label-caps !text-black/80 !text-[1.2rem] opacity-100">
+                02. {language === 'pt' ? 'Tecnologias Base' : 'Core Tech'}
+              </h2>
+            </div>
+            <div className="space-y-4 mb-12 lg:hidden">
+              <h2 className="label-caps !text-black/80 !text-[1.2rem] opacity-100">
+                02. {language === 'pt' ? 'Tecnologias Base' : 'Core Tech'}
+              </h2>
+            </div>
             {SKILLS_DATA.map((group, idx) => (
               <Reveal key={group.category}>
                 <div className="space-y-10 group/item">

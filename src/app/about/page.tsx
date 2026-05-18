@@ -24,7 +24,7 @@ export default function AboutPage() {
               </span>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif italic leading-tight text-black mb-8">
                 {language === 'pt' 
-                  ? 'Crafting clean interfaces with modern code.' 
+                  ? 'Criando interfaces limpas através de tecnologia moderna.' 
                   : 'Crafting clean interfaces with modern code.'}
               </h1>
               <div className="flex gap-4 items-center">
